@@ -18,11 +18,6 @@ def call_rfc(request: RFCRequest):
 def health_check():
     return check_sap_connection()
 
-from fastapi import FastAPI
-from app.db import get_db_connection
-
-app = FastAPI()
-
 @app.get("/data")
 def get_all_data():
     conn = get_db_connection()
