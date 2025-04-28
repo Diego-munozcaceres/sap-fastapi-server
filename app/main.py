@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.models import RFCRequest
 from app.rfc import call_sap_rfc, check_sap_connection
+from app.db import get_db_connection
 
 app = FastAPI()
 
@@ -16,3 +17,18 @@ def call_rfc(request: RFCRequest):
 @app.get("/health")
 def health_check():
     return check_sap_connection()
+
+from fastapi import FastAPI
+from app.db import get_db_connection
+
+app = FastAPI()
+
+@app.get("/data")
+def get_all_data():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM Data")
+    rows = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return rows

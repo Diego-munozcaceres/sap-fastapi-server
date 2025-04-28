@@ -1,6 +1,51 @@
 from pydantic import BaseModel
-from typing import Dict
+from typing import Dict, Optional
 
 class RFCRequest(BaseModel):
     rfc_name: str
     parameters: Dict
+
+class DataRecord(BaseModel):
+    ID: Optional[int]
+    Fecha: Optional[str]
+    Hora: Optional[str]
+    Solicitante: str
+    SolicitanteCorreo: str
+    Estado: Optional[str]
+    Sociedad: Optional[str]
+    Division: Optional[str]
+    ConceptoPago: Optional[str]
+    CentroCostos: Optional[str]
+    Cuenta: Optional[str]
+    MonedaPago: Optional[str]
+    Monto: Optional[float]
+    RutProveedor: Optional[str]
+    Vencimiento: Optional[str]
+    MetodoPago: Optional[str]
+    ComprobanteContable: Optional[str]
+    Observacion: Optional[str]
+    ObservacionInterna: Optional[str]
+    Accion: Optional[str]
+    Tipo_rut: Optional[str]
+    ObservacionTesoreria: Optional[str]
+    Motivo: Optional[str]
+    Comentario: Optional[str]
+    TipoAnticipo: Optional[str]
+    OC: Optional[str]
+    Formulario: Optional[str]
+    Periodo: Optional[str]
+    FechaCuadre: Optional[str]
+    ValidadorCorreo: Optional[str]
+    ContabilidadCorreo: Optional[str]
+    TesoreriaCorreo: Optional[str]
+    ValidadorFecha: Optional[str]
+    ContabilidadFecha: Optional[str]
+    TesoreriaFecha: Optional[str]
+    RechazoFecha: Optional[str]
+    RechazoCorreo: Optional[str]
+    ReceptorPago: Optional[str]
+    Oculto: Optional[int]
+    fecha_emision: Optional[str]
+    destinatarios_validador: Optional[str]
+    destinatarios_contabilidad: Optional[str]
+    destinatarios_tesoreria: Optional[str]
