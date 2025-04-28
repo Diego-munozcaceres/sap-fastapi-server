@@ -17,7 +17,6 @@ COPY sdk/nwrfcsdk /nwrfcsdk
 
 ENV SAPNWRFC_HOME=/nwrfcsdk
 
-
 # Configurar variables de entorno para el compilador
 ENV NWRFCSDK_INCLUDE_DIR=/nwrfcsdk/include
 ENV NWRFCSDK_LIB_DIR=/nwrfcsdk/lib
@@ -39,8 +38,8 @@ RUN git clone https://github.com/SAP/PyRFC.git && \
     ls -la PyRFC && \
     pip install ./PyRFC
 
-# Puerto expuesto por FastAPI (opcional para Cloud Run o local)
-EXPOSE 8000
+# Puerto expuesto
+EXPOSE 8080
 
 # Comando para iniciar FastAPI
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
